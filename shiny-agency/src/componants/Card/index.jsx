@@ -1,4 +1,4 @@
-function Card (label, picture, title) {
+function Card ({label, picture, title}) {
     return(
         <div style={{display:'flex', flexDirection:'column', padding:15}}>
             <span>{label}</span>
