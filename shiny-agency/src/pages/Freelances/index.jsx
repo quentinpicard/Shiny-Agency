@@ -1,6 +1,6 @@
 import {freelanceProfiles} from '../../data/freelanceProfiles/freelanceProfiles';
 import Card from "../../componants/Card";
-import PropTypes from 'prop-types'
+
 
 function Freelances () {
     return (
@@ -8,9 +8,8 @@ function Freelances () {
             <h1>Freelance</h1>
             {freelanceProfiles.map((profile, index) => (
                 <Card
-                    // key={`${profile.name}-${index}`}
+                    key={`${profile.name}-${index}`}
                     label={profile.jobTitle}
-                    picture={profile.picture}
                     title={profile.jobTitle}
                 />
             ))}
@@ -18,10 +17,5 @@ function Freelances () {
     )
 }
 
-Card.propTypes = {
-    label : PropTypes.string,
-    picture : PropTypes.string,
-    jobTitle : PropTypes.string
-}
 
 export default Freelances;
