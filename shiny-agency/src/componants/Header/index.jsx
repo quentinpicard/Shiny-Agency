@@ -1,5 +1,13 @@
 // Importation du composant Link depuis react-router-dom pour créer des liens de navigation
 import { Link } from "react-router-dom";
+import styled from 'styled-components';
+
+const StyledLink = styled(Link)`
+    padding: 15px;
+    color: #8186a0;
+    text-decoration: none;
+    font-size: 18px;
+`;
 
 // Définition du composant fonctionnel Header
 function Header() {
@@ -8,11 +16,11 @@ function Header() {
         // Élément de navigation contenant les liens
         <nav>
             {/* Lien vers la page d'accueil */}
-            <Link to='/'>Accueil</Link>
+            <StyledLink to='/'>Accueil</StyledLink>
             {/* Lien vers la première question du questionnaire */}
-            <Link to='/survey/1'>Questionnaire</Link>
+            <StyledLink to='/survey/1'>Questionnaire</StyledLink>
             {/* Lien vers la page des freelances */}
-            <Link to='/freelances'>Freelance</Link>
+            <StyledLink to='/freelances'>Freelance</StyledLink>
         </nav>
     );
 }
