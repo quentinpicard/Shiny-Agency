@@ -5,7 +5,7 @@ import { colors } from "../../utils/style/colors";
 import DarkLogo from "../../asset/dark-logo.png";
 
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
     padding: 8px 16px;
     color: ${colors.secondary};
     text-decoration: none;
@@ -49,7 +49,7 @@ function Header(logo) {
                 {/* Lien vers la page des freelances */}
                 <StyledLink to='/profils'>Profils</StyledLink>
                 {/* Lien vers la première question du questionnaire */}
-                <StyledLink to='/survey/1' $isFullLink >Questionnaire</StyledLink>
+                <StyledLink to='/survey/1' $isFullLink >Faire le test</StyledLink>
             </Nav>
         </StyledHeader>
         

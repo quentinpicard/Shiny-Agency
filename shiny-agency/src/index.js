@@ -18,13 +18,16 @@ const GlobalStyle = createGlobalStyle`
     div {
         font-family: 'Trebuchet MS', Helvetica, sans-serif;
     }
+    Link {
+      background-color:red;
+    }
 `;
 
 const root = ReactDOM.createRoot(document.getElementById('root'),);
 root.render(
 <React.StrictMode>
       <Router>
-        <GlobalStyle />
+          <GlobalStyle />
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
