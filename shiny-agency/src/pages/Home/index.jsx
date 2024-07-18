@@ -24,8 +24,9 @@ const TitleContents = styled.div`
   align-items: center;
   justify-content: space-around;
 `;
-const Title = styled.h1`
-  font-size:50px
+export const Title = styled.h1`
+  font-size:50px;
+  font-family: 'Trebuchet MS', Helvetica, sans-serif;
 `;
 const ImgContents = styled.div`
   flex : 0 1 50%;

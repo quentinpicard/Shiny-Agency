@@ -5,37 +5,47 @@ import { colors } from '../../utils/style/colors';
 
 
 const CardLabel = styled.span`
-    color: #5843e4;
+    color: ${colors.primary};
     font-size: 22px;
-    font-weight: bold;
+    font-weight: normal;
+    text-align:left;
+    width:100%;
 `;
 const CardImg = styled.img`
-    height: 80px;
-    width: 80px;
+    width: 40%;
     border-radius: 50%;
 `;
 const CardWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    padding: 15px;
+    margin-bottom : 24px;
+    padding: 16px 24px;
     background-color: ${colors.backgroundLight};
     border-radius: 30px;
-    width: 350px;
+    flex : 0 1 43%;
+    height : 60%;
+    align-items:center;
     transition: 200ms;
     &:hover {
         cursor: pointer;
         box-shadow: 2px 2px 10px #e2e3e9;
     }
+    justify-content: space-between;
+`;
+const Name = styled.span`
+    color: ${colors.secondary};
+    font-size: 25px;
+    font-weight: normal;
 `;
 
-function Card ({label, picture, title }) {
+function Card ({label, picture, name }) {
     
 
     return(
         <CardWrapper>
             <CardLabel>{label}</CardLabel>
             <CardImg src={picture}  alt="freelance" />
-            <span>{title}</span>
+            <Name>{name}</Name>
         </CardWrapper>  
     )
 }

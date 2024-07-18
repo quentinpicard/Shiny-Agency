@@ -7,13 +7,18 @@ export const freelanceProfiles = [
         picture: DefaultPicture
     },
     {
-        name: 'John Doe',
+        name: 'Alexandra Dupont',
         jobTitle: 'Developpeur frontend',
         picture: DefaultPicture
     },
     {
         name: 'Jeanne Biche',
         jobTitle: 'Développeuse Fullstack',
+        picture: DefaultPicture
+    },
+    {
+        name: 'Lauren Ipsum',
+        jobTitle: 'Ux Designer',
         picture: DefaultPicture
     }
 ]
