@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import {createGlobalStyle} from 'styled-components';
 
 import Home from './pages/Home';
 import Header from './componants/Header';
@@ -9,14 +10,21 @@ import Freelances from './pages/Freelances';
 
 
 import Survey from './pages/Survey';
+import Error from './componants/Error';
 // import ClientForm from './componants/ClientForm';
 // import FreelanceForm from './componants/FreelanceForm';
-import Error from './componants/Error';
+
+const GlobalStyle = createGlobalStyle`
+    div {
+        font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    }
+`;
 
 const root = ReactDOM.createRoot(document.getElementById('root'),);
 root.render(
 <React.StrictMode>
       <Router>
+        <GlobalStyle />
           <Header />
           <Routes>
               <Route path="/" element={<Home />} />
