@@ -3,11 +3,9 @@ import styled from 'styled-components';
 import { colors } from "../../utils/style/colors";
 import { StyledLink } from "../../componants/Header";
 
-const HomeDiv = styled.div`
+export const HomeDiv = styled.div`
   width: 100%;
   height : 75vh;
-  display:flex;
-  justify-content: center;
   margin-top:64px;
 `;
 const MainContents = styled.div`
@@ -16,6 +14,7 @@ const MainContents = styled.div`
   padding : 5%;
   border-radius : 16px;
   display:flex;
+  margin : auto auto
 `;
 const TitleContents = styled.div`
   flex : 0 1 50%;
