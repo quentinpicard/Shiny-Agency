@@ -29,7 +29,7 @@ root.render(
           <Routes>
               <Route path="/" element={<Home />} />
               <Route path='/results' element={<Results />} />
-              <Route path='/freelances' element={<Freelances />} />
+              <Route path='/Profils' element={<Freelances />} />
               <Route path="/survey/:questionNumber" element={<Survey />} >
                 {/* <Route path='client' element={<ClientForm />} />
                 <Route path='freelance' element={<FreelanceForm />} /> */}

@@ -10,7 +10,7 @@ const CardsContainer = styled.div`
 `;
 
 
-function Freelances () {
+function Profils () {
     return (
         <div>
             <h1>Freelance</h1>
@@ -28,4 +28,4 @@ function Freelances () {
 }
 
 
-export default Freelances;
+export default Profils;
