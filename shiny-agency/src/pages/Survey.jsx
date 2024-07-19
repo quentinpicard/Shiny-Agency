@@ -1,8 +1,8 @@
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { colors } from '../utils/style/colors'
 import { Loader } from '../utils/style/Atoms'
 
@@ -10,16 +10,16 @@ const SurveyContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`
+`;
 
 const QuestionTitle = styled.h2`
   text-decoration: underline;
   text-decoration-color: ${colors.primary};
-`
+`;
 
 const QuestionContent = styled.span`
   margin: 30px;
-`
+`;
 
 const LinkWrapper = styled.div`
   padding-top: 30px;
@@ -38,6 +38,7 @@ function Survey() {
   const nextQuestionNumber = questionNumberInt + 1
   const [surveyData, setSurveyData] = useState({})
   const [isDataLoading, setDataLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   // Cette syntaxe permet aussi bien de faire des calls API.
   // Mais pour utiliser await dans une fonction, il faut que celle-ci soit async (pour asynchrone).
@@ -58,14 +59,32 @@ function Survey() {
 
   useEffect(() => {
     // fetchData()
-    setDataLoading(true)
-    fetch(`http://localhost:8000/survey`).then((response) =>
-      response.json().then(({ surveyData }) => {
+    // setDataLoading(true)
+    // fetch(`http://localhost:8000/survey`).then((response) =>
+    //   response.json().then(({ surveyData }) => {
+    //     setSurveyData(surveyData)
+    //     setDataLoading(false)
+    //   })
+    // )
+    async function fetchSurvey() {
+      setDataLoading(true)
+      try {
+        const response = await fetch(`http://localhost:8000/survey`)
+        const { surveyData } = await response.json()
         setSurveyData(surveyData)
+      } catch (err) {
+        console.log('===== error =====', err)
+        setError(true)
+      } finally {
         setDataLoading(false)
-      })
-    )
+      }
+    }
+    fetchSurvey()
   }, [])
+
+  if (error) {
+    return <span>Oups il y a eu un problème</span>
+  }
 
   return (
     <SurveyContainer>
