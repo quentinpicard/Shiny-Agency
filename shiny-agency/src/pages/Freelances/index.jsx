@@ -24,17 +24,17 @@ const TitleContent = styled.div`
     flex-direction: column;
     align-items: center;
 `;
-const Loading = styled.div`
-    width:100%;
-    backgroundcolor : red
-`;
+const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 const Title = styled.h2`
     font-size: 30px;
     font-family: 'Trebuchet MS', Helvetica, sans-serif;
 `;
 
 function Profils() {
-    const [freelances, setFreelances] = useState([]);
+    const [freelancersList, setFreelances] = useState([]);
     const [isDataLoading, setDataLoading] = useState(false);
     const [error, setError] = useState(false);
 
@@ -43,9 +43,9 @@ function Profils() {
             setDataLoading(true);
             try {
                 const response = await fetch('http://localhost:8000/freelances');
-                const data = await response.json();
-                console.log('API response:', data.freelancersList); 
-                setFreelances(data.freelancersList); // Assurez-vous que 'data' est directement un tableau d'objets
+                const {freelancersList} = await response.json();
+                console.log('API response:', freelancersList); 
+                setFreelances(freelancersList); // Assurez-vous que 'data' est directement un tableau d'objets
             } catch (err) {
                 console.log('===== error =====', err);
                 setError(true);
@@ -67,14 +67,14 @@ function Profils() {
                 <p>Chez Shiny nous réunissons les meilleurs profils pour vous.</p>
             </TitleContent>
             {isDataLoading ? (
-                <Loading>
+                <LoaderWrapper>
                     <Loader />
-                </Loading>
+                </LoaderWrapper>
                 
             ) : (
                 <CardsContainer>
                     {
-                        freelances.map((profile) => (
+                        freelancersList.map((profile) => (
                             <Card
                                 key={profile.id} // Assurez-vous que chaque 'profile' a une propriété 'id'
                                 label={profile.job}
