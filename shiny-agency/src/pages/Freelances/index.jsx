@@ -73,7 +73,7 @@ function Profils() {
                 
             ) : (
                 <CardsContainer>
-                    {freelances.length > 0 ? (
+                    {
                         freelances.map((profile) => (
                             <Card
                                 key={profile.id} // Assurez-vous que chaque 'profile' a une propriété 'id'
@@ -82,9 +82,7 @@ function Profils() {
                                 picture={profile.picture} // Ajouter des informations supplémentaires si nécessaire
                             />
                         ))
-                    ) : (
-                        <div>Aucun profil disponible</div>
-                    )}
+                    }
                 </CardsContainer>
             )}
         </MainContent>
