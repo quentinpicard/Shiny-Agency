@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import {createGlobalStyle} from 'styled-components';
+// import {createGlobalStyle} from 'styled-components';
 
 import Home from './pages/Home';
 import Header from './componants/Header';
 import Results from './pages/Results';
 import Freelances from './pages/Freelances';
+import Footer from './componants/Footer';
+import {ThemeProvider} from './utils/context/index';
+import GlobalStyle from './utils/style/GlobalStyle';
 
 
 import Survey from './pages/Survey';
@@ -14,19 +17,13 @@ import Error from './componants/Error';
 // import ClientForm from './componants/ClientForm';
 // import FreelanceForm from './componants/FreelanceForm';
 
-const GlobalStyle = createGlobalStyle`
-    div {
-        font-family: 'Trebuchet MS', Helvetica, sans-serif;
-    }
-    Link {
-      background-color:red;
-    }
-`;
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'),);
 root.render(
 <React.StrictMode>
       <Router>
+        <ThemeProvider>
           <GlobalStyle />
           <Header />
           <Routes>
@@ -39,6 +36,8 @@ root.render(
               </Route>
               <Route path='*' element={<Error />}/>
           </Routes>
+          <Footer />
+        </ThemeProvider>
       </Router>
   </React.StrictMode>,
   document.getElementById('root')
